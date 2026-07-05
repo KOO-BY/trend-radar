@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 - 올리브영 화장품, 건기식 트렌드를 한 눈에</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="login-header">
+        <span class="icon">📡</span>
+        <h1>성분 트렌드 레이더</h1>
+        <p class="subtitle">올리브영 화장품, 건기식 트렌드를 한 눈에</p>
+      </div>
+
+      <form id="login-form">
+        <div class="input-group">
+          <label for="email">계정 아이디 (이메일)</label>
+          <input type="email" id="email" required placeholder="발급받으신 계정을 입력하세요" autocomplete="username">
+        </div>
+        
+        <div class="input-group">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" required placeholder="비밀번호를 입력하세요" autocomplete="current-password">
+        </div>
+
+        <div id="error-message" class="error-message hidden">아이디 또는 비밀번호가 올바르지 않습니다.</div>
+
+        <button type="submit" class="login-btn" id="login-btn">
+          <span class="btn-text">로그인</span>
+          <span class="spinner hidden">⏳</span>
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <p>계정 발급 및 구매 문의는 관리자에게 연락 바랍니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

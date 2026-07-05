@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>성분 트렌드 레이더 | 화장품·건기식 핫 성분 소싱 가이드</title>
+  <meta name="description" content="화장품·건강기능식품의 현재 핫한 성분 트렌드를 한눈에 파악하고, 오프라인 창고 방문 전 소싱 빙고판을 생성하여 효율적인 소싱을 도와드립니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1.1">
+</head>
+<body style="display: none;">
+  <div id="app">
+
+    <!-- 헤더 -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="header-logo">
+          <span class="logo-icon">📡</span>
+          <span class="logo-text">성분 트렌드 레이더</span>
+        </div>
+        <div class="header-right">
+          <div class="update-info" id="update-date">2026.07 기준</div>
+          <button id="logout-btn" class="logout-btn">로그아웃</button>
+        </div>
+      </div>
+      <!-- 탭 -->
+      <nav class="tab-nav" role="tablist" aria-label="메인 탭">
+        <button class="tab active" data-tab="trend" role="tab" aria-selected="true" id="tab-trend">
+          🏆 트렌드 랭킹
+        </button>
+        <button class="tab" data-tab="calculator" role="tab" aria-selected="false" id="tab-calculator">
+          🧮 마진 계산기
+        </button>
+      </nav>
+    </header>
+
+    <!-- ===== 트렌드 랭킹 탭 ===== -->
+    <section id="panel-trend" class="tab-panel active" role="tabpanel" aria-labelledby="tab-trend">
+
+      <!-- 카테고리 필터 -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" id="filter-all">전체</button>
+        <button class="filter-btn" data-filter="cosmetics" id="filter-cosmetics">💄 화장품</button>
+        <button class="filter-btn" data-filter="health" id="filter-health">💊 건기식</button>
+      </div>
+
+      <!-- 레이더 히트맵 (상위 5개 시각화) -->
+      <div class="radar-heatmap" id="radar-heatmap">
+        <div class="radar-title">🔥 이번 달 TOP 5</div>
+        <div class="radar-bars" id="radar-bars"></div>
+      </div>
+
+      <!-- 전체 랭킹 리스트 -->
+      <div class="ranking-list" id="ranking-list">
+        <!-- JS로 렌더링 -->
+      </div>
+    </section>
+
+    <!-- ===== 마진 계산기 탭 ===== -->
+    <section id="panel-calculator" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-calculator">
+      <div class="calc-container">
+        
+        <!-- 입력 폼 -->
+        <div class="calc-form">
+          <div class="calc-input-group">
+            <label for="calc-cost">사입가 (원)</label>
+            <input type="tel" id="calc-cost" class="calc-input" placeholder="0" inputmode="numeric">
+          </div>
+          <div class="calc-input-group">
+            <label for="calc-price">판매가 (원)</label>
+            <input type="tel" id="calc-price" class="calc-input" placeholder="0" inputmode="numeric">
+          </div>
+          
+          <div class="calc-input-group">
+            <label for="calc-fee">마켓 수수료 (%)</label>
+            <input type="tel" id="calc-fee" class="calc-input" value="6" inputmode="numeric">
+          </div>
+          <div class="calc-input-group">
+            <label for="calc-shipping">배송비 (원)</label>
+            <input type="tel" id="calc-shipping" class="calc-input" value="3000" inputmode="numeric">
+          </div>
+
+          <div class="calc-input-group">
+            <label for="calc-other">기타비용 (포장/사은품 등) (원)</label>
+            <input type="tel" id="calc-other" class="calc-input" value="0" inputmode="numeric">
+          </div>
+          
+          <!-- 결과 카드 -->
+          <div class="calc-result-card" id="calc-result-card">
+            <div class="result-row primary">
+              <span class="result-label">예상 순수익</span>
+              <span class="result-value net-profit" id="calc-net-profit">0원</span>
+            </div>
+            <div class="result-row secondary">
+              <div class="result-col">
+                <span class="result-label">마진율</span>
+                <span class="result-value" id="calc-margin-rate">0%</span>
+              </div>
+              <div class="result-col">
+                <span class="result-label">투자수익률(ROI)</span>
+                <span class="result-value" id="calc-roi">0%</span>
+              </div>
+            </div>
+          </div>
+
+          <button id="btn-reset-calc" class="btn-reset-calc">
+            🔄 초기화
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 성분 상세 모달 -->
+  <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-ingredient-name">
+    <div class="modal-card">
+      <button id="modal-close" class="modal-close-btn" aria-label="닫기">✕</button>
+      <div class="modal-header">
+        <span class="modal-emoji" id="modal-emoji">💄</span>
+        <div>
+          <span class="modal-category-badge" id="modal-cat-badge">화장품</span>
+          <h2 class="modal-ingredient-name" id="modal-ingredient-name">성분명</h2>
+        </div>
+      </div>
+      <div class="modal-trend-row">
+        <div class="modal-score-wrap">
+          <span class="modal-score-label">트렌드 점수</span>
+          <span class="modal-score" id="modal-score">95</span>
+        </div>
+        <div class="modal-direction" id="modal-direction">↑↑</div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <div class="modal-section-title">🔍 왜 유행인가요?</div>
+          <p class="modal-desc" id="modal-desc"></p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">🛍️ 대표 제품 예시</div>
+          <ul class="modal-products" id="modal-products"></ul>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">💰 예상 판매가 범위</div>
+          <div class="modal-price-range" id="modal-price-range"></div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">⚠️ 소싱 주의사항</div>
+          <p class="modal-caution" id="modal-caution"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 로딩 오버레이 -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">트렌드 데이터 로딩 중...</p>
+  </div>
+
+  <!-- 에러 오버레이 -->
+  <div id="error-overlay" class="error-overlay hidden">
+    <div class="error-content">
+      <span style="font-size:36px">⚠️</span>
+      <p>데이터를 불러올 수 없습니다.<br><small>로컬 파일 서버를 통해 실행해 주세요.</small></p>
+    </div>
+  </div>
+
+  <script type="module" src="app.js?v=1.3"></script>
+</body>
+</html>

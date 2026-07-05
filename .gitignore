@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.DS_Store
+node_modules/
+
+# Sensitive local files
+generate_accounts.py
+issued_accounts.csv
+*.csv
