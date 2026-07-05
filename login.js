@@ -7,6 +7,18 @@ const loginBtn = document.getElementById('login-btn');
 const btnText = loginBtn.querySelector('.btn-text');
 const spinner = loginBtn.querySelector('.spinner');
 const errorMessage = document.getElementById('error-message');
+const rememberMeCheckbox = document.getElementById('remember-me');
+
+// 로컬 스토리지에서 저장된 정보 불러오기
+window.addEventListener('DOMContentLoaded', () => {
+  const savedEmail = localStorage.getItem('trendRadarEmail');
+  const savedPassword = localStorage.getItem('trendRadarPassword');
+  if (savedEmail && savedPassword) {
+    emailInput.value = savedEmail;
+    passwordInput.value = savedPassword;
+    rememberMeCheckbox.checked = true;
+  }
+});
 
 // 이미 로그인된 상태라면 index.html로 이동
 onAuthStateChanged(auth, (user) => {
@@ -31,6 +43,16 @@ loginForm.addEventListener('submit', async (e) => {
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    
+    // 로그인 성공 시 정보 자동 저장 처리
+    if (rememberMeCheckbox.checked) {
+      localStorage.setItem('trendRadarEmail', email);
+      localStorage.setItem('trendRadarPassword', password);
+    } else {
+      localStorage.removeItem('trendRadarEmail');
+      localStorage.removeItem('trendRadarPassword');
+    }
+    
     // 로그인 성공 시 onAuthStateChanged가 감지하여 리다이렉트 처리함
   } catch (error) {
     console.error("Login failed:", error);
