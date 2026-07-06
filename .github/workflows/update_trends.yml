@@ -36,7 +36,7 @@ jobs:
           
       - name: Push to Public Database Repository
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          PAT_TOKEN: ${{ secrets.TREND_RADAR_GITHUB_TOKEN }}
         run: |
           # 1. 대상(공개) 저장소를 /tmp/database 경로에 클론
           git clone https://${PAT_TOKEN}@github.com/KOO-BY/trend-database.git /tmp/database
