@@ -40,21 +40,22 @@
     body {
       font-family: 'Inter', 'Pretendard', sans-serif;
       background-color: #080c14; /* Deepened background for higher contrast */
-      color: #f1f5f9; /* Brightened body text color */
+      color: #f8fafc; /* Brightened body text color (Slate 50) */
       overflow-x: hidden;
+      font-size: 18px; /* Boost base font size */
     }
     .glass-card {
-      background: rgba(17, 24, 39, 0.9); /* Darker background opacity for high readability */
+      background: rgba(17, 24, 39, 0.95); /* Darker background opacity for high readability */
       backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
     .hero-glow {
       position: absolute;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
       z-index: -1;
       filter: blur(80px);
     }
@@ -63,59 +64,59 @@
     }
   </style>
 </head>
-<body class="bg-[#080c14] text-slate-100 antialiased">
+<body class="bg-[#080c14] text-slate-50 antialiased">
 
   <!-- Root Container to force dark mode styles inside WordPress -->
-  <div class="bg-[#080c14] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-slate-900">
+  <div class="bg-[#080c14] text-slate-50 min-h-screen selection:bg-cyan-500 selection:text-slate-900">
 
     <!-- Top Navigation -->
-    <nav class="sticky top-0 z-50 bg-[#080c14]/90 backdrop-blur-md border-b border-white/10">
-      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <span class="material-symbols-outlined text-cyan-400 text-3xl">radar</span>
-          <span class="text-xl font-extrabold tracking-wider text-white">성분 트렌드 레이더</span>
+    <nav class="sticky top-0 z-50 bg-[#080c14]/95 backdrop-blur-md border-b border-white/10">
+      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-cyan-400 text-4xl">radar</span>
+          <span class="text-2xl font-black tracking-wider text-white">성분 트렌드 레이더</span>
         </div>
-        <div class="hidden sm:flex items-center gap-8 text-sm font-semibold text-slate-300">
+        <div class="hidden sm:flex items-center gap-10 text-base font-bold text-slate-300">
           <a class="hover:text-cyan-400 transition-colors" href="#features">주요 기능</a>
           <a class="hover:text-cyan-400 transition-colors" href="#refund">환불 정책</a>
           <a class="hover:text-cyan-400 transition-colors" href="#pricing">요금제</a>
         </div>
-        <a href="https://koo-by.github.io/trend-radar/" target="_blank" class="bg-white/10 text-white border border-white/20 px-4 py-2 rounded-lg font-bold text-xs hover:bg-white/20 transition-all">
+        <a href="https://koo-by.github.io/trend-radar/" target="_blank" class="bg-white/10 text-white border border-white/20 px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-white/20 transition-all">
           대시보드 로그인
         </a>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative overflow-hidden pt-16 pb-24">
+    <header class="relative overflow-hidden pt-20 pb-28">
       <div class="hero-glow top-[-100px] left-[-150px]"></div>
       <div class="hero-glow bottom-[-150px] right-[-150px]"></div>
       
       <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="lg:col-span-7 flex flex-col gap-8">
           
           <!-- High-Contrast Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-bold w-fit uppercase tracking-wider">
-            <span class="relative flex h-2 w-2">
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-cyan-950/90 border border-cyan-500/40 text-cyan-300 text-sm font-black w-fit uppercase tracking-wider">
+            <span class="relative flex h-2.5 w-2.5">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
             </span>
             2026 오프라인 사입 소싱 필수 가이드
           </div>
           
-          <h1 class="text-3xl md:text-5xl font-black leading-tight tracking-tight text-white">
+          <h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-white">
             성분 분석과 마진 계산을 한 번에,<br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-300">성분 트렌드 레이더</span>
           </h1>
           
-          <p class="text-base md:text-lg text-slate-300 leading-relaxed font-medium">
+          <p class="text-lg md:text-xl text-slate-200 leading-relaxed font-bold">
             올리브영 인기 화장품 및 건강기능식품 성분 트렌드를 한눈에 파악하고, 소싱 현장에서 사입가와 마켓 수수료를 입력해 순수익과 마진율을 즉석에서 계산하세요. 1인 소싱 셀러를 위한 올인원 대시보드 솔루션입니다.
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4 mt-2">
-            <a href="#pricing" class="bg-gradient-to-r from-cyan-400 to-sky-500 text-slate-900 px-8 py-4 rounded-xl font-black text-base text-center btn-glow-hover transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20">
+            <a href="#pricing" class="bg-gradient-to-r from-cyan-400 to-sky-500 text-slate-900 px-10 py-5 rounded-xl font-black text-lg text-center btn-glow-hover transition-all flex items-center justify-center gap-3 shadow-xl shadow-cyan-500/20">
               평생 소장권 구매하기
-              <span class="material-symbols-outlined font-black">arrow_forward</span>
+              <span class="material-symbols-outlined font-black text-xl">arrow_forward</span>
             </a>
           </div>
         </div>
@@ -123,7 +124,7 @@
         <!-- Live Dashboard Image -->
         <div class="lg:col-span-5 relative">
           <div class="absolute -inset-2 bg-gradient-to-tr from-cyan-500/20 to-transparent rounded-2xl blur-xl opacity-60"></div>
-          <div class="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl shadow-cyan-400/10">
+          <div class="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-cyan-400/10">
             <img src="https://sub.policy-wiki.com/wp-content/uploads/2026/07/트렌드레이더대시보드.png" alt="성분 트렌드 레이더 대시보드" class="w-full h-auto object-cover">
           </div>
         </div>
@@ -131,43 +132,43 @@
     </header>
 
     <!-- Features Section -->
-    <section id="features" class="py-24 bg-black/30 border-y border-white/10">
+    <section id="features" class="py-28 bg-black/40 border-y border-white/10">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-20">
-          <h2 class="text-3xl font-black text-white">성분 트렌드 레이더의 핵심 기능</h2>
-          <p class="text-slate-200 mt-3 text-base font-bold">오직 소싱 셀러의 업무 효율 향상과 리스크 방지에 초점을 맞추었습니다.</p>
+        <div class="text-center max-w-2xl mx-auto mb-24">
+          <h2 class="text-3xl md:text-4xl font-black text-white">성분 트렌드 레이더의 핵심 기능</h2>
+          <p class="text-slate-200 mt-4 text-lg md:text-xl font-extrabold">오직 소싱 셀러의 업무 효율 향상과 리스크 방지에 초점을 맞추었습니다.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Feature 1 -->
-          <div class="glass-card p-8 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
-            <div class="w-12 h-12 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-              <span class="material-symbols-outlined text-2xl font-bold">trending_up</span>
+          <div class="glass-card p-10 rounded-xl flex flex-col gap-6 relative overflow-hidden group">
+            <div class="w-14 h-14 rounded-lg bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400">
+              <span class="material-symbols-outlined text-3xl font-black">trending_up</span>
             </div>
-            <h3 class="text-xl font-bold text-white">인기 성분 실시간 추적</h3>
-            <p class="text-slate-300 text-sm leading-relaxed font-medium">
+            <h3 class="text-2xl font-black text-white">인기 성분 실시간 추적</h3>
+            <p class="text-slate-200 text-base leading-relaxed font-bold">
               올리브영 화장품 및 건강기능식품 마켓의 판매 데이터를 실시간으로 모니터링하여, 현재 시장에서 급상승 중인 성분과 원료 정보를 순위별로 제공합니다.
             </p>
           </div>
 
           <!-- Feature 2 -->
-          <div class="glass-card p-8 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
-            <div class="w-12 h-12 rounded-lg bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-400">
-              <span class="material-symbols-outlined text-2xl font-bold">calculate</span>
+          <div class="glass-card p-10 rounded-xl flex flex-col gap-6 relative overflow-hidden group">
+            <div class="w-14 h-14 rounded-lg bg-amber-950/80 border border-amber-500/40 flex items-center justify-center text-amber-400">
+              <span class="material-symbols-outlined text-3xl font-black">calculate</span>
             </div>
-            <h3 class="text-xl font-bold text-white">현장 특화 마진 계산기</h3>
-            <p class="text-slate-300 text-sm leading-relaxed font-medium">
+            <h3 class="text-2xl font-black text-white">현장 특화 마진 계산기</h3>
+            <p class="text-slate-200 text-base leading-relaxed font-bold">
               사입 현장에서 스마트폰으로 사입가, 마켓 수수료, 배송비 등을 입력하면 실시간으로 순수익과 ROI(투자 대비 수익률)를 1초 만에 색상 코드로 식별해 줍니다.
             </p>
           </div>
 
           <!-- Feature 3 -->
-          <div class="glass-card p-8 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
-            <div class="w-12 h-12 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <span class="material-symbols-outlined text-2xl font-bold">mail_lock</span>
+          <div class="glass-card p-10 rounded-xl flex flex-col gap-6 relative overflow-hidden group">
+            <div class="w-14 h-14 rounded-lg bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+              <span class="material-symbols-outlined text-3xl font-black">mail_lock</span>
             </div>
-            <h3 class="text-xl font-bold text-white">즉시 자동 계정 발급</h3>
-            <p class="text-slate-300 text-sm leading-relaxed font-medium">
+            <h3 class="text-2xl font-black text-white">즉시 자동 계정 발급</h3>
+            <p class="text-slate-200 text-base leading-relaxed font-bold">
               결제가 완료되는 즉시 구글 시트 및 Firebase 연동을 통해, 사전에 입력하신 고객님의 이메일로 접속 계정(ID/PW)이 실시간으로 자동 발급 및 전송됩니다.
             </p>
           </div>
@@ -176,23 +177,23 @@
     </section>
 
     <!-- Refund & FAQ Section -->
-    <section id="refund" class="py-24">
+    <section id="refund" class="py-28">
       <div class="max-w-4xl mx-auto px-6">
-        <div class="glass-card p-8 md:p-12 rounded-2xl border border-rose-500/30 bg-rose-950/10">
-          <div class="flex items-center gap-3.5 mb-6 text-rose-400">
-            <span class="material-symbols-outlined text-3.5xl font-bold">gavel</span>
-            <h2 class="text-xl md:text-2xl font-black">취소/환불 정책 및 서비스 이용 안내</h2>
+        <div class="glass-card p-10 md:p-14 rounded-2xl border border-rose-500/30 bg-rose-950/15">
+          <div class="flex items-center gap-4 mb-8 text-rose-400">
+            <span class="material-symbols-outlined text-4xl font-black">gavel</span>
+            <h2 class="text-2xl md:text-3xl font-black text-white">취소/환불 정책 및 서비스 이용 안내</h2>
           </div>
-          <div class="text-slate-200 space-y-5 text-sm md:text-base leading-relaxed font-medium">
-            <div class="border-b border-white/10 pb-4">
-              <p class="font-bold text-white text-base mb-1.5">🚨 디지털 상품 청약철회 불가 고지</p>
+          <div class="text-slate-200 space-y-6 text-base md:text-lg leading-relaxed font-bold">
+            <div class="border-b border-white/10 pb-6">
+              <p class="font-black text-white text-lg md:text-xl mb-2.5">🚨 디지털 상품 청약철회 불가 고지</p>
               <p>
                 본 서비스는 전자상거래법 제17조 제2항 제5호(디지털콘텐츠의 제공이 개시된 경우)에 해당합니다. 
                 구매 완료 후 전용 계정(ID/PW) 정보가 발송된 시점부터는 서비스 제공이 시작된 것으로 간주되므로, 디지털 지식 재산권 특성상 **구매 후 중도 환불 및 반품이 불가능**하오니 신중한 구매를 부탁드립니다.
               </p>
             </div>
             <div>
-              <p class="font-bold text-white text-base mb-1.5">🔑 이용권 발급 방법 안내</p>
+              <p class="font-black text-white text-lg md:text-xl mb-2.5">🔑 이용권 발급 방법 안내</p>
               <p>
                 결제 페이지에서 결제를 성공적으로 마치면, 수 분 내에 구매 시 입력하셨던 이메일 주소로 전용 계정(ID/PW)이 발송됩니다. 해당 로그인 정보를 사용하여 대시보드 주소로 접속하시면 즉시 평생 제한 없이 서비스를 이용하실 수 있습니다.
               </p>
@@ -203,46 +204,46 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-24 bg-black/30 border-t border-white/10">
+    <section id="pricing" class="py-28 bg-black/40 border-t border-white/10">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <h2 class="text-3xl font-black text-white">성분 트렌드 레이더 요금제</h2>
-          <p class="text-slate-200 mt-3 text-base font-bold">추가 과금이나 기간 제한 없는 단 하나의 직관적인 요금제입니다.</p>
+        <div class="text-center max-w-2xl mx-auto mb-20">
+          <h2 class="text-3xl md:text-4xl font-black text-white">성분 트렌드 레이더 요금제</h2>
+          <p class="text-slate-200 mt-4 text-lg md:text-xl font-extrabold">추가 과금이나 기간 제한 없는 단 하나의 직관적인 요금제입니다.</p>
         </div>
 
-        <div class="max-w-md mx-auto relative">
+        <div class="max-w-lg mx-auto relative">
           <div class="absolute -inset-4 bg-gradient-to-tr from-cyan-500/30 to-amber-500/20 rounded-3xl blur-2xl opacity-60"></div>
           
           <!-- Center Pricing Card -->
-          <div class="relative glass-card p-8 rounded-2xl border-2 border-cyan-400 flex flex-col gap-6 text-center">
-            <span class="bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-bold px-3.5 py-1.5 rounded-full w-fit mx-auto tracking-widest">LIFETIME</span>
-            <h3 class="text-2xl font-black text-white">평생 소장권</h3>
-            <div class="flex items-center justify-center gap-1.5">
-              <span class="text-3xl md:text-5xl font-black text-white">9,900원</span>
-              <span class="text-xs text-slate-400 font-bold">/ 일시불 (부가세 포함)</span>
+          <div class="relative glass-card p-10 rounded-2xl border-2 border-cyan-400 flex flex-col gap-8 text-center">
+            <span class="bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-sm font-black px-4 py-2 rounded-full w-fit mx-auto tracking-widest">LIFETIME</span>
+            <h3 class="text-3xl font-black text-white">평생 소장권</h3>
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-4xl md:text-6xl font-black text-white">9,900원</span>
+              <span class="text-sm text-slate-300 font-bold">/ 일시불 (부가세 포함)</span>
             </div>
             
-            <ul class="text-left text-sm text-slate-200 space-y-4 my-4 border-y border-white/10 py-6 font-medium">
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-cyan-400 text-lg font-bold">check_circle</span>
+            <ul class="text-left text-base md:text-lg text-slate-200 space-y-5 my-4 border-y border-white/10 py-8 font-bold">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400 text-xl font-black">check_circle</span>
                 <span>올리브영 화장품·건기식 인기 성분 실시간 추적</span>
               </li>
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-cyan-400 text-lg font-bold">check_circle</span>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400 text-xl font-black">check_circle</span>
                 <span>현장 특화 모바일 마진 계산기 평생 무제한 이용</span>
               </li>
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-cyan-400 text-lg font-bold">check_circle</span>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400 text-xl font-black">check_circle</span>
                 <span>결제 즉시 이메일로 접속 계정 실시간 발급</span>
               </li>
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-cyan-400 text-lg font-bold">check_circle</span>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400 text-xl font-black">check_circle</span>
                 <span>추후 기능 평생 무료 업데이트 지원</span>
               </li>
             </ul>
 
             <!-- Checkout Button Link -->
-            <a href="https://sub.policy-wiki.com/checkout/?add-to-cart=PRODUCT_ID_HERE" class="bg-gradient-to-r from-cyan-400 to-sky-500 text-slate-900 py-4.5 rounded-xl font-black text-base btn-glow-hover transition-all shadow-lg shadow-cyan-500/10 block">
+            <a href="https://sub.policy-wiki.com/checkout/?add-to-cart=PRODUCT_ID_HERE" class="bg-gradient-to-r from-cyan-400 to-sky-500 text-slate-900 py-5 rounded-xl font-black text-lg btn-glow-hover transition-all shadow-lg shadow-cyan-500/10 block">
               구매하고 즉시 발급받기
             </a>
           </div>
@@ -251,21 +252,21 @@
     </section>
 
     <!-- Footer Section (Mandatory Business Info) -->
-    <footer class="py-16 bg-[#04060a] border-t border-white/10 text-slate-400 text-xs leading-relaxed">
-      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-        <div class="space-y-1.5">
-          <p class="font-bold text-slate-200 mb-2 text-sm">성분 트렌드 레이더</p>
+    <footer class="py-20 bg-[#04060a] border-t border-white/10 text-slate-300 text-sm leading-relaxed font-bold">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+        <div class="space-y-2">
+          <p class="font-black text-slate-100 mb-3 text-base">성분 트렌드 레이더</p>
           <p>상호명: [상호명 입력] | 대표자: 구본엽</p>
           <p>사업자등록번호: [사업자등록번호 입력] | 통신판매업신고번호: [통신판매업신고번호 입력]</p>
           <p>사업장 소재지: [사업장 주소지 입력]</p>
           <p>고객센터: ddumiigii@gmail.com | 연락처: [연락처 입력]</p>
         </div>
-        <div class="md:text-right flex flex-col md:justify-between gap-4">
-          <div class="flex md:justify-end gap-6 font-semibold text-slate-300">
+        <div class="md:text-right flex flex-col md:justify-between gap-6">
+          <div class="flex md:justify-end gap-8 font-black text-slate-200">
             <a href="#" class="hover:text-cyan-400 transition-colors">이용약관</a>
             <a href="#" class="hover:text-cyan-400 transition-colors">개인정보처리방침</a>
           </div>
-          <p class="text-slate-500">© 2026 Trend Radar. All rights reserved.</p>
+          <p class="text-slate-500 text-xs">© 2026 Trend Radar. All rights reserved.</p>
         </div>
       </div>
     </footer>
